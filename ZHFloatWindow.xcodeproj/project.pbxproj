@@ -16,6 +16,8 @@
 		0F5E33F9242F330600623068 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E33F8242F330600623068 /* main.m */; };
 		0F5E3403242F330600623068 /* ZHFloatWindowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E3402242F330600623068 /* ZHFloatWindowTests.m */; };
 		0F5E340E242F330600623068 /* ZHFloatWindowUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E340D242F330600623068 /* ZHFloatWindowUITests.m */; };
+		0F5E341D242F338600623068 /* ZHFloatView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F5E341C242F338600623068 /* ZHFloatView.m */; };
+		0F5E341F242F434200623068 /* applet-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F5E341E242F434200623068 /* applet-icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,9 @@
 		0F5E3409242F330600623068 /* ZHFloatWindowUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZHFloatWindowUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F5E340D242F330600623068 /* ZHFloatWindowUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHFloatWindowUITests.m; sourceTree = "<group>"; };
 		0F5E340F242F330600623068 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F5E341B242F338600623068 /* ZHFloatView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHFloatView.h; sourceTree = "<group>"; };
+		0F5E341C242F338600623068 /* ZHFloatView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHFloatView.m; sourceTree = "<group>"; };
+		0F5E341E242F434200623068 /* applet-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "applet-icon.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +115,9 @@
 				0F5E33EA242F330500623068 /* SceneDelegate.m */,
 				0F5E33EC242F330500623068 /* ViewController.h */,
 				0F5E33ED242F330500623068 /* ViewController.m */,
+				0F5E341B242F338600623068 /* ZHFloatView.h */,
+				0F5E341C242F338600623068 /* ZHFloatView.m */,
+				0F5E341E242F434200623068 /* applet-icon.png */,
 				0F5E33EF242F330500623068 /* Main.storyboard */,
 				0F5E33F2242F330600623068 /* Assets.xcassets */,
 				0F5E33F4242F330600623068 /* LaunchScreen.storyboard */,
@@ -242,6 +250,7 @@
 			files = (
 				0F5E33F6242F330600623068 /* LaunchScreen.storyboard in Resources */,
 				0F5E33F3242F330600623068 /* Assets.xcassets in Resources */,
+				0F5E341F242F434200623068 /* applet-icon.png in Resources */,
 				0F5E33F1242F330500623068 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +278,7 @@
 			files = (
 				0F5E33EE242F330500623068 /* ViewController.m in Sources */,
 				0F5E33E8242F330500623068 /* AppDelegate.m in Sources */,
+				0F5E341D242F338600623068 /* ZHFloatView.m in Sources */,
 				0F5E33F9242F330600623068 /* main.m in Sources */,
 				0F5E33EB242F330500623068 /* SceneDelegate.m in Sources */,
 			);

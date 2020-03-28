@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ZHFloatView.h"
 
 @interface ViewController ()
 
@@ -16,7 +17,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    ZHFloatView *floatView = [ZHFloatView floatView];
+    floatView.tapClickBlock = ^{
+        NSLog(@"---------tapClickBlock-----------");
+    };
+    [floatView showInView:self.view];
 }
 
 
