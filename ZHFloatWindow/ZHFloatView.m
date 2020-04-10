@@ -15,6 +15,7 @@ typedef NS_ENUM(NSInteger, ZHFloatLocation) {
 
 @interface ZHFloatView ()<UIGestureRecognizerDelegate>
 @property (nonatomic,strong) UIImageView *imageView;
+@property (nonatomic,strong) UILabel *titleLabel;
 @property (nonatomic, assign) CGPoint startPoint;
 @property (nonatomic, assign) CGRect startFrame;
 
@@ -51,10 +52,15 @@ typedef NS_ENUM(NSInteger, ZHFloatLocation) {
         self.clipsToBounds = YES;
         [self updateUINormal];
         [self addSubview:self.imageView];
+        [self addSubview:self.titleLabel];
         
         [self configGesture];
     }
     return self;
+}
+
+- (void)updateTitle:(NSString *)title{
+    self.titleLabel.text = title;
 }
 
 #pragma mark - config
@@ -149,12 +155,16 @@ typedef NS_ENUM(NSInteger, ZHFloatLocation) {
     maskLayer.path = maskPath.CGPath;
     self.layer.mask = maskLayer;
     
-    
     CGFloat imageViewW = 40;
     CGFloat imageViewH = 40;
     CGFloat margin = 10;
     self.imageView.layer.cornerRadius = imageViewW * 0.5;
     self.imageView.frame = CGRectMake((location == ZHFloatLocationRight ? margin : selfW - imageViewW - margin), (selfH - imageViewH) * 0.5, imageViewW, imageViewH);
+    
+    CGFloat labelW = 50;
+    CGFloat labelH = 50;
+    margin = 5;
+    self.titleLabel.frame = CGRectMake((location == ZHFloatLocationRight ? margin : selfW - labelW - margin), (selfH - labelH) * 0.5, labelW, labelH);
 }
 #pragma mark - action
 
@@ -290,5 +300,17 @@ typedef NS_ENUM(NSInteger, ZHFloatLocation) {
         _imageView.image = [UIImage imageNamed:@"applet-icon"];
     }
     return _imageView;
+}
+
+- (UILabel *)titleLabel {
+    if (!_titleLabel) {
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        _titleLabel.font = [UIFont systemFontOfSize:12];
+        _titleLabel.textAlignment = NSTextAlignmentCenter;
+        _titleLabel.numberOfLines = 0;
+        _titleLabel.textColor = [UIColor blueColor];
+        _titleLabel.backgroundColor = [UIColor clearColor];
+    }
+    return _titleLabel;
 }
 @end

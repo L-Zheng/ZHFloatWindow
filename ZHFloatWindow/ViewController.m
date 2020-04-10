@@ -24,6 +24,7 @@
     floatView.tapClickBlock = ^{
         NSLog(@"---------tapClickBlock-----------");
     };
+    [floatView updateTitle:@"刷新中..."];
     [floatView showInView:self.view];
 }
 
