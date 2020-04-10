@@ -32,18 +32,17 @@ typedef NS_ENUM(NSInteger, ZHFloatLocation) {
     return view;
 }
 - (void)showInView:(UIView *)view{
-    if (!view || [self.superview isEqual:view]) return;
-    CGFloat superW = view.frame.size.width;
-    CGFloat superH = view.frame.size.height;
-    CGFloat selfW = 60;
-    CGFloat selfH = 60;
+    if (!view) return;
     
-    self.frame = CGRectMake(superW - selfW, (superH - selfH) * 0.5, selfW, selfH);
-    
-    [view addSubview:self];
-    [self moveToScreenEdge:^(CGRect currentFrame, ZHFloatLocation location) {
-        
-    }];
+    if (!self.superview) {
+        [view addSubview:self];
+    }else{
+        if (![self.superview isEqual:view]) {
+            [self removeFromSuperview];
+            [view addSubview:self];
+        }
+    }
+    [self updateWhenSuperViewLayout];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -57,6 +56,24 @@ typedef NS_ENUM(NSInteger, ZHFloatLocation) {
         [self configGesture];
     }
     return self;
+}
+
+- (void)updateWhenSuperViewLayout{
+    UIView *view = self.superview;
+    
+    CGFloat superW = view.frame.size.width;
+    CGFloat superH = view.frame.size.height;
+    CGFloat selfW = 60;
+    CGFloat selfH = 60;
+    
+    self.frame = CGRectMake(superW - selfW, (superH - selfH) * 0.5, selfW, selfH);
+    
+    if (![self.superview isEqual:view]) {
+        [view addSubview:self];
+    }
+    [self moveToScreenEdge:^(CGRect currentFrame, ZHFloatLocation location) {
+        
+    }];
 }
 
 - (void)updateTitle:(NSString *)title{

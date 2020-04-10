@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (ZHFloatView *)floatView;
 - (void)showInView:(UIView *)view;
+
+- (void)updateWhenSuperViewLayout;
 - (void)updateTitle:(NSString *)title;
 
 @property (nonatomic, copy) void (^tapClickBlock) (void);
