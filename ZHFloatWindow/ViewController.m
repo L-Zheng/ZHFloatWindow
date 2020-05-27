@@ -10,10 +10,15 @@
 #import "ZHFloatView.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) ZHFloatView *floatView;
 @end
 
 @implementation ViewController
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [self.floatView updateWhenSuperViewLayout];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +30,13 @@
         NSLog(@"---------tapClickBlock-----------");
     };
     [floatView updateTitle:@"刷新中..."];
-    [floatView showInView:self.view];
+    [floatView showInView:self.view location:ZHFloatLocationLeft];
+    self.floatView = floatView;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        UINavigationBar *bar = self.navigationController.navigationBar;
+        bar.translucent = NO;
+    });
 }
 
 
