@@ -121,7 +121,7 @@
     CGFloat centerX = (self.center.x >= superW * 0.5) ? rightCenterX : leftCenterX;
     CGPoint targetCenter = CGPointMake(centerX, self.center.y);
     
-    ZHFloatLocation location = (self.center.x >= superW * 0.5) ? ZHFloatLocationRight : ZHFloatLocationLeft;
+    ZHFloatLocation location = superW == 0 ? self.location : ((self.center.x >= superW * 0.5) ? ZHFloatLocationRight : ZHFloatLocationLeft);
     
     if (CGPointEqualToPoint(targetCenter, self.center)) {
         self.location = location;
