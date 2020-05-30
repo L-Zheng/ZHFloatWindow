@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "ZHFloatWindow/ZHFloatView.h", "ZHFloatWindow/ZHFloatView.m"
+  s.source_files  = "ZHFloatWindow/Float/*.{h,m}"
   # s.source_files  = "Classes", "ZHCategoty/Category/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
   # s.resource  = "icon.png"
-  s.resources = "ZHFloatWindow/applet-icon.png"
+  s.resources = "ZHFloatWindow/Resources/**/*"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 

@@ -115,9 +115,8 @@
 				0F5E33EA242F330500623068 /* SceneDelegate.m */,
 				0F5E33EC242F330500623068 /* ViewController.h */,
 				0F5E33ED242F330500623068 /* ViewController.m */,
-				0F5E341B242F338600623068 /* ZHFloatView.h */,
-				0F5E341C242F338600623068 /* ZHFloatView.m */,
-				0F5E341E242F434200623068 /* applet-icon.png */,
+				0F638676248200FE00C6255C /* Float */,
+				0F638675248200F900C6255C /* Resources */,
 				0F5E33EF242F330500623068 /* Main.storyboard */,
 				0F5E33F2242F330600623068 /* Assets.xcassets */,
 				0F5E33F4242F330600623068 /* LaunchScreen.storyboard */,
@@ -143,6 +142,23 @@
 				0F5E340F242F330600623068 /* Info.plist */,
 			);
 			path = ZHFloatWindowUITests;
+			sourceTree = "<group>";
+		};
+		0F638675248200F900C6255C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0F5E341E242F434200623068 /* applet-icon.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		0F638676248200FE00C6255C /* Float */ = {
+			isa = PBXGroup;
+			children = (
+				0F5E341B242F338600623068 /* ZHFloatView.h */,
+				0F5E341C242F338600623068 /* ZHFloatView.m */,
+			);
+			path = Float;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
