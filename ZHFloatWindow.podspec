@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
   #  non-essential files like tests, examples and documentation.
   #
   # s.resource  = "icon.png"
-  s.resources = ["ZHFloatWindow/Resources/**/*"]
+  # s.resources = ["ZHFloatWindow/Resources/**/*"]
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
