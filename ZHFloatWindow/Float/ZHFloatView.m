@@ -18,6 +18,7 @@
 @property (nonatomic, assign) CGFloat timerCount;
 
 @property (nonatomic,assign) ZHFloatLocation location;
+@property (nonatomic,assign) CGFloat locationScale;
 @end
 
 @implementation ZHFloatView
@@ -32,9 +33,13 @@
     [self showInView:view location:ZHFloatLocationRight];
 }
 - (void)showInView:(UIView *)view location:(ZHFloatLocation)location{
+    [self showInView:view location:location locationScale:0.5];
+}
+- (void)showInView:(UIView *)view location:(ZHFloatLocation)location locationScale:(CGFloat)locationScale{
     if (!view) return;
     
     self.location = location;
+    self.locationScale = (locationScale <= 0 || locationScale >= 1) ? 0.5 : locationScale;
     
     if (!self.superview) {
         [view addSubview:self];
@@ -76,7 +81,7 @@
         X = 0;
     }
         
-    self.frame = CGRectMake(X, (superH - selfH) * 0.5, selfW, selfH);
+    self.frame = CGRectMake(X, (superH * self.locationScale - selfH * 0.5), selfW, selfH);
     
     if (![self.superview isEqual:view]) {
         [view addSubview:self];
@@ -115,6 +120,7 @@
     //移动到屏幕边缘
     UIView *superview = self.superview;
     CGFloat superW = superview.frame.size.width;
+    CGFloat superH = superview.frame.size.height;
     
     CGFloat leftCenterX = (self.frame.size.width * 0.5 + 0);
     CGFloat rightCenterX = superW - (self.frame.size.width * 0.5 + 0);
@@ -125,6 +131,7 @@
     
     if (CGPointEqualToPoint(targetCenter, self.center)) {
         self.location = location;
+        self.locationScale = targetCenter.y / superH;
         if (finishBlock) finishBlock(self.frame, location);
         [self updateUIWhenAnimateEnd:location];
         return;
@@ -133,6 +140,7 @@
     [UIView animateWithDuration:0.25 animations:^{
         weakSelf.center = targetCenter;
         weakSelf.location = location;
+        weakSelf.locationScale = targetCenter.y / superH;
         if (finishBlock) finishBlock(weakSelf.frame, location);
     } completion:^(BOOL finished) {
         [weakSelf updateUIWhenAnimateEnd:location];

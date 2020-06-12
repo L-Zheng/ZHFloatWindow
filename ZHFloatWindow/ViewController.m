@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor orangeColor];
     
     ZHFloatView *floatView = [ZHFloatView floatView];
     floatView.tapClickBlock = ^{

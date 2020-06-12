@@ -20,6 +20,7 @@ typedef NS_ENUM(NSInteger, ZHFloatLocation) {
 + (ZHFloatView *)floatView;
 - (void)showInView:(UIView *)view;
 - (void)showInView:(UIView *)view location:(ZHFloatLocation)location;
+- (void)showInView:(UIView *)view location:(ZHFloatLocation)location locationScale:(CGFloat)locationScale;
 
 - (void)updateWhenSuperViewLayout;
 - (void)updateTitle:(NSString *)title;
