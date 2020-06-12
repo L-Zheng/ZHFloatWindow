@@ -30,14 +30,29 @@
         NSLog(@"---------tapClickBlock-----------");
     };
     [floatView updateTitle:@"刷新中..."];
-    [floatView showInView:self.view location:ZHFloatLocationLeft];
+    [floatView showInView:self.view location:ZHFloatLocationLeft locationScale:0.4];
     self.floatView = floatView;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        UINavigationBar *bar = self.navigationController.navigationBar;
-        bar.translucent = NO;
-    });
+    
+    
+    ZHFloatView *floatView1 = [ZHFloatView floatView];
+    floatView1.tapClickBlock = ^{
+        NSLog(@"---------tapClickBlock-----------");
+    };
+    [floatView1 updateTitle:@"刷新中..."];
+    [floatView1 showInView:self.view location:ZHFloatLocationLeft locationScale:0.6];
+    
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+    btn.backgroundColor = [UIColor cyanColor];
+    [self.view addSubview:btn];
+    [btn addTarget:self action:@selector(clickBtn) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
+- (void)clickBtn{
+    UINavigationBar *bar = self.navigationController.navigationBar;
+    bar.translucent = !bar.translucent;
+}
 
 @end

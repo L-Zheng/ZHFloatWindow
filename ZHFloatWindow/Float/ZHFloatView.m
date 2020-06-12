@@ -131,7 +131,9 @@
     
     if (CGPointEqualToPoint(targetCenter, self.center)) {
         self.location = location;
-        self.locationScale = targetCenter.y / superH;
+        if (superH > 0) {
+            self.locationScale = targetCenter.y / superH;
+        }
         if (finishBlock) finishBlock(self.frame, location);
         [self updateUIWhenAnimateEnd:location];
         return;
@@ -140,7 +142,9 @@
     [UIView animateWithDuration:0.25 animations:^{
         weakSelf.center = targetCenter;
         weakSelf.location = location;
-        weakSelf.locationScale = targetCenter.y / superH;
+        if (superH > 0) {
+            weakSelf.locationScale = targetCenter.y / superH;
+        }
         if (finishBlock) finishBlock(weakSelf.frame, location);
     } completion:^(BOOL finished) {
         [weakSelf updateUIWhenAnimateEnd:location];
