@@ -8,16 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+//NS_ASSUME_NONNULL_BEGIN
+
+@interface ZHFloatItem : NSObject
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, assign) BOOL closeWhenTapClick;
+@property (nonatomic, copy) void (^tapClickBlock) (ZHFloatItem *item);
+@end
+
+@interface ZHFloatItemView : UIView
+- (instancetype)initWithItem:(ZHFloatItem *)item;
+@end
+
 
 typedef NS_ENUM(NSInteger, ZHFloatLocation) {
     ZHFloatLocationLeft     = 0,
     ZHFloatLocationRight      = 1,
 };
-
 @interface ZHFloatView : UIView
 
-+ (ZHFloatView *)floatView;
++ (ZHFloatView *)floatViewWithItems:(NSArray <ZHFloatItem *> *)items;
 - (void)showInView:(UIView *)view;
 - (void)showInView:(UIView *)view location:(ZHFloatLocation)location;
 - (void)showInView:(UIView *)view location:(ZHFloatLocation)location locationScale:(CGFloat)locationScale;
@@ -25,11 +35,14 @@ typedef NS_ENUM(NSInteger, ZHFloatLocation) {
 - (void)updateWhenSuperViewLayout;
 - (void)updateTitle:(NSString *)title;
 
+@property (nonatomic, assign, readonly, getter=isOpen) BOOL open;
 @property (nonatomic, copy) void (^tapClickBlock) (void);
 @property (nonatomic, copy) void (^panGestureBegan) (void);
 @property (nonatomic, copy) void (^panGestureChanged) (CGRect currentFrame);
 @property (nonatomic, copy) void (^panGestureEnd) (void);
 
+- (void)open:(void (^) (void))completion;
+- (void)close:(void (^) (void))completion;
 @end
 
-NS_ASSUME_NONNULL_END
+//NS_ASSUME_NONNULL_END
